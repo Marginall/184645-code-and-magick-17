@@ -14,8 +14,6 @@ var FONT_GAP = 20;
 var mainColor = '#fff';
 var darkColor = 'rgba(0, 0, 0, 0.7)';
 var userBarColor = 'rgba(255, 0, 0, 1)';
-var positionForTotalX = TEXT_X + FONT_GAP;
-var positionForTotalY = TEXT_Y + FONT_GAP + FONT_GAP;
 
 var renderCloud = function (ctx, x, y, color) {
   ctx.fillRect(x, y, CLOUD_WIDTH, CLOUD_HEIGHT);
@@ -50,6 +48,8 @@ var getMaxElement = function (arr) {
 window.renderStatistics = function (ctx, names, times) {
   renderPreview(ctx);
   var maxTime = getMaxElement(times);
+  var positionForTotalX = TEXT_X + FONT_GAP;
+  var positionForTotalY = TEXT_Y + FONT_GAP + FONT_GAP;
 
   for (var i = 0; i < names.length; i++) {
     ctx.fillStyle = darkColor;
