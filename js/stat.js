@@ -56,7 +56,7 @@ window.renderStatistics = function (ctx, names, times) {
     renderText(ctx, names[i], positionForTotalX, CLOUD_HEIGHT - FONT_GAP, FONT);
     renderText(ctx, Math.floor(times[i]), positionForTotalX, positionForTotalY + (BAR_HEIGHT - (BAR_HEIGHT * times[i]) / maxTime), FONT);
 
-    if (i === 0) {
+    if (names[i] === 'Вы') {
       ctx.fillStyle = userBarColor;
     } else {
       ctx.fillStyle = 'rgba(0, 0, 255, ' + parseFloat(Math.random()) + ')';
