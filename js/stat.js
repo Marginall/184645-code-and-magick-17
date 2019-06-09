@@ -29,6 +29,7 @@ var renderText = function (ctx, text, x, y, font) {
 var renderPreview = function (ctx) {
   renderCloud(ctx, CLOUD_X, CLOUD_Y, darkColor);
   renderCloud(ctx, CLOUD_X - CLOUD_GAP, CLOUD_Y - CLOUD_GAP, mainColor);
+  ctx.fillStyle = darkColor;
   renderText(ctx, 'Ура вы победили!', TEXT_X, TEXT_Y, FONT);
   renderText(ctx, 'Список результатов:', TEXT_X, TEXT_Y + FONT_GAP, FONT);
 };
