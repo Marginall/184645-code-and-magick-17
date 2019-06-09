@@ -16,8 +16,8 @@ var darkColor = 'rgba(0, 0, 0, 0.7)';
 var userBarColor = 'rgba(255, 0, 0, 1)';
 
 var renderCloud = function (ctx, x, y, color) {
-  ctx.fillRect(x, y, CLOUD_WIDTH, CLOUD_HEIGHT);
   ctx.fillStyle = color;
+  ctx.fillRect(x, y, CLOUD_WIDTH, CLOUD_HEIGHT);
 };
 
 var renderText = function (ctx, text, x, y, font) {
@@ -27,8 +27,8 @@ var renderText = function (ctx, text, x, y, font) {
 };
 
 var renderPreview = function (ctx) {
-  renderCloud(ctx, CLOUD_X, CLOUD_Y, mainColor);
-  renderCloud(ctx, CLOUD_X - CLOUD_GAP, CLOUD_Y - CLOUD_GAP, darkColor);
+  renderCloud(ctx, CLOUD_X, CLOUD_Y, darkColor);
+  renderCloud(ctx, CLOUD_X - CLOUD_GAP, CLOUD_Y - CLOUD_GAP, mainColor);
   renderText(ctx, 'Ура вы победили!', TEXT_X, TEXT_Y, FONT);
   renderText(ctx, 'Список результатов:', TEXT_X, TEXT_Y + FONT_GAP, FONT);
 };
