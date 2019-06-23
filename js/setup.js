@@ -20,6 +20,7 @@ var avatarCoat = avatar.querySelector('.wizard-coat');
 var avatarEye = avatar.querySelector('.wizard-eyes');
 var fireball = document.querySelector('.setup-fireball-wrap');
 var fireballValue = fireball.querySelector('input');
+window.blockIsShow = false;
 
 function wizardsGenerate() {
   for (var i = 1; i <= 4; i++) {
@@ -62,6 +63,7 @@ templateGenerate();
 
 var openBlock = function () {
   block.classList.remove('hidden');
+  window.blockIsShow = true;
 
   inputName.addEventListener('focus', function () {
     document.removeEventListener('keydown', onCloseBlockEscPress);
@@ -83,10 +85,13 @@ var openBlock = function () {
   buttonSubmit.addEventListener('click', function () {
     form.submit();
   });
+
+  window.reloadSetup(block);
 };
 
 var closeBlock = function () {
   block.classList.add('hidden');
+  window.blockIsShow = false;
   document.removeEventListener('keydown', onCloseBlockEscPress);
 };
 
