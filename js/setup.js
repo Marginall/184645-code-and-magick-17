@@ -21,7 +21,6 @@
 
     window.backend.load(window.onLoad, window.onError);
 
-
     inputName.addEventListener('focus', function () {
       document.removeEventListener('keydown', onCloseBlockEscPress);
     });
@@ -35,12 +34,14 @@
 
     buttonSubmit.addEventListener('focus', function (evt) {
       if (evt.keyCode === ENTER_KEYCODE) {
+        evt.preventDefault(evt);
         onOpenBlockSubmit();
       }
     });
 
-    buttonSubmit.addEventListener('click', function () {
-      form.submit();
+    buttonSubmit.addEventListener('click', function (evt) {
+      evt.preventDefault(evt);
+      onOpenBlockSubmit();
     });
 
     window.reloadSetup(block);
@@ -53,7 +54,8 @@
   };
 
   var onOpenBlockSubmit = function () {
-    form.submit();
+    var data = new FormData(form);
+    window.backend.save(data, window.onLoad, window.onError);
   };
 
   var onOpenBlockClick = function () {

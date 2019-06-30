@@ -18,11 +18,11 @@
       });
     },
     save: function (data, onLoad, onError) {
-      var url = url || 'https://js.dump.academy/code-and-magick/data';
+      var url = url || 'https://js.dump.academy/code-and-magick/';
       var xhr = new XMLHttpRequest();
       xhr.responseType = 'json';
       xhr.open('GET', url);
-      xhr.send();
+      xhr.send(data);
 
       xhr.addEventListener('load', function () {
         if (xhr.status === 200) {
@@ -31,6 +31,8 @@
           onError();
         }
       });
+
+      xhr.addEventListener('error', onError);
     }
   };
 
