@@ -15,12 +15,12 @@
   var fireball = document.querySelector('.setup-fireball-wrap');
   window.blockIsShow = false;
 
-  window.wizardsGenerate();
-  window.templateGenerate();
-
   var openBlock = function () {
     block.classList.remove('hidden');
     window.blockIsShow = true;
+
+    window.backend.load(window.onLoad, window.onError);
+
 
     inputName.addEventListener('focus', function () {
       document.removeEventListener('keydown', onCloseBlockEscPress);
