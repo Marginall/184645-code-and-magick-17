@@ -20,13 +20,13 @@
     save: function (data, onLoad, onError) {
       var url = url || 'https://js.dump.academy/code-and-magick/';
       var xhr = new XMLHttpRequest();
-      xhr.responseType = 'json';
-      xhr.open('GET', url);
+      xhr.open('POST', url);
       xhr.send(data);
 
       xhr.addEventListener('load', function () {
         if (xhr.status === 200) {
           onLoad(xhr.response);
+          window.closeBlock();
         } else {
           onError();
         }

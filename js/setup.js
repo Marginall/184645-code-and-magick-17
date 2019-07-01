@@ -47,7 +47,7 @@
     window.reloadSetup(block);
   };
 
-  var closeBlock = function () {
+  window.closeBlock = function () {
     block.classList.add('hidden');
     window.blockIsShow = false;
     document.removeEventListener('keydown', onCloseBlockEscPress);
@@ -63,12 +63,12 @@
   };
 
   var onCloseBlockClick = function () {
-    closeBlock();
+    window.closeBlock();
   };
 
   var onCloseBlockEscPress = function (evt) {
     if (evt.keyCode === ESC_KEYCODE) {
-      closeBlock();
+      window.closeBlock();
     }
   };
 
@@ -80,7 +80,7 @@
 
   var onCloseBlockEnterPress = function (evt) {
     if (evt.keyCode === ENTER_KEYCODE) {
-      closeBlock();
+      window.closeBlock();
     }
   };
 
@@ -101,5 +101,4 @@
   });
 
   fireball.addEventListener('click', window.castomizer.fireball);
-
 })();
